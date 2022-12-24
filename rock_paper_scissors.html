@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Rock, Paper, Scissors Game</h1>
+    <h3> enter any of the below option as your choice</h3>
+    <ul>
+        <li>rock</li>
+        <li>paper</li>
+        <li>scissors</li>
+    </ul>
+    <h3> enter for five times</h3>
+
+    <!-- <div>
+    <button type="button" onclick="getRock()" autofocus> Rock </button>
+    <button type="button" autofocus> Paper </button>
+    <button type="button" > Scissors </button>
+    </div> -->
+
+    <script>
+        let c=0;
+        let u=0;
+        game();
+        
+        function getComputerChoice(){
+            let arr=['rock','paper','scissors'];
+            let comp_choice=arr[Math.floor(Math.random()*arr.length)];
+            return comp_choice;
+        }
+        function getUserChoice(){
+            let user_choice=prompt("enter your choice");
+            return user_choice.toLowerCase();
+            
+        }
+        function result(){
+
+            let comp=getComputerChoice();
+            let user=getUserChoice();
+            console.log(comp);
+            console.log(user);
+            if( comp==user){
+                console.log("draw match");
+            }
+            else if ( comp=='rock' & user=='paper'){
+                console.log("user won the match");
+                u++;
+            }
+            else if (comp=='paper' & user=='rock'){
+                console.log("computer won the match");
+               c++;
+            }
+            else if (comp=='paper' & user=='scissors'){
+                console.log("user won the match");
+                u++;
+
+            }
+            else if (comp=='scissors' & user=='paper'){
+                console.log("computer won the match");
+                c++;
+
+            }
+            else if (comp=='scissors' & user=='rock'){
+                console.log("user won the match");
+                u++;
+            }
+            else if (comp=='rock' & user=='scissors'){
+                console.log("computer won the match");
+                c++;
+            }
+        }
+
+        function game(){
+            for(let i=0; i<5; i++){
+                result();
+            }
+            if(c>u){
+                console.log("computer is winner with " + c + " times");
+            }
+            else{
+                console.log("user is winner with " + u + " times");
+            }
+        }
+    </script>
+
+</body>
+</html>
